@@ -7,7 +7,7 @@ import android.widget.TextView
 
 class HomeActivity : AppCompatActivity() {
 
-
+//bnjlcbnjkndjk
     val TAG :String = "HomeActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
