@@ -8,33 +8,25 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
+import com.jpr.newbatchapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var binding: ActivityMainBinding
 
     val TAG: String = "MainActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+
+        setContentView(binding.root)
 
 
-        val submit = findViewById<Button>(R.id.button)
-        val nameEdt = findViewById<EditText>(R.id.nameEdt)
-        val chk = findViewById<CheckBox>(R.id.checkBox)
+        binding.button.setOnClickListener {
 
-        submit.setOnClickListener {
-
-            val intent = Intent(this@MainActivity,HomeActivity::class.java)
-            val name = nameEdt.text.toString()
-            intent.putExtra("name",name)
-
-            Log.d(TAG,name.toString())
-
-            if (chk.isChecked){
-                val checkBox = chk.text.toString()
-                intent.putExtra("chk",checkBox)
-                Log.d(TAG,checkBox.toString())
-            }
+            val intent = Intent(this@MainActivity, HomeActivity::class.java)
 
             startActivity(intent)
 

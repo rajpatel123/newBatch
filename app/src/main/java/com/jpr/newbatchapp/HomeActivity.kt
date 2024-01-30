@@ -2,33 +2,40 @@ package com.jpr.newbatchapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.jpr.newbatchapp.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
 
-
-    val TAG :String = "HomeActivity"
+    lateinit var binding: ActivityHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
 
 
-        val nametv = findViewById<TextView>(R.id.nameTV)
-        val chktv = findViewById<TextView>(R.id.chkTv)
+        binding = ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
 
+        val freindlist =  arrayListOf<String>()
 
-        val name = intent.getStringExtra("name")
+        for (i in 1.. 100){
 
-        nametv.text = name
+            freindlist.add("Atul"+i)
 
-
-        if (intent.hasExtra("chk")){
-            val chk = intent.getStringExtra("chk")
-            chktv.text = chk
         }
+
+
+        val frendListAdapter = FrendListAdapter(freindlist)
+
+        binding.nameRv.layoutManager = LinearLayoutManager(this)
+
+        binding.nameRv.setHasFixedSize(true)
+
+        binding.nameRv.adapter = frendListAdapter
+
+
+
 
 
 
