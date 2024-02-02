@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.jpr.newbatchapp.databinding.ItemNameBinding
 
-class FrendListAdapter(val freindlist: ArrayList<String>) : RecyclerView.Adapter<FrendListAdapter.FreindsViewHolder>() {
+class FrendListAdapter(val freindlist: ArrayList<Student>) : RecyclerView.Adapter<FrendListAdapter.FreindsViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FreindsViewHolder {
@@ -18,9 +18,12 @@ class FrendListAdapter(val freindlist: ArrayList<String>) : RecyclerView.Adapter
 
     override fun onBindViewHolder(holder: FreindsViewHolder, position: Int) {
 
-        val name = freindlist[position]
+        val std = freindlist[position]
 
-        holder.binding.nameTV.text=name
+        holder.binding.nameTV.text=std.name
+        holder.binding.emailTV.text=std.email
+        holder.binding.phoneTV.text=std.phone
+        holder.binding.image.setImageResource(std.image)
 
     }
 

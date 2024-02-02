@@ -17,11 +17,13 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        val freindlist =  arrayListOf<String>()
+        val freindlist =  arrayListOf<Student>()
 
         for (i in 1.. 100){
 
-            freindlist.add("Atul"+i)
+            val std = Student("Atul"+1,"atul"+i+"gmail.com","87439847394"+i,R.drawable.raj)
+
+            freindlist.add(std)
 
         }
 
